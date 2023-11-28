@@ -9,7 +9,7 @@ import api.utilities.DataProviders;
 import io.restassured.response.Response;
 
 public class DDTests {
-	@Test (priority=1, dataProvider="Data", dataProviderClass=DataProviders.class)
+	@Test (priority=1, dataProvider="allData", dataProviderClass=DataProviders.class)
 	public void testPostuser (String userID, String userName, String fname, String lname, String useremail, String pwd, String ph)
 	{
 	    User userPayload=new User();
@@ -20,7 +20,7 @@ public class DDTests {
 	    userPayload.setEmail(useremail);
 	    userPayload.setPassword(pwd);
 	    userPayload.setPhone(ph);
-	    
+//	    System.out.print(userPayload);
 		Response response = UserEndPoints.createUser(userPayload);
 		response.then().log().all();
 	Assert.assertEquals(response.getStatusCode(), 200);

@@ -5,7 +5,6 @@
     <classes>
       <class name="api.test.DDTests">
         <methods>
-          <include name="testDeleteUserByName"/>
           <include name="testPostuser"/>
         </methods>
       </class> <!-- api.test.DDTests -->

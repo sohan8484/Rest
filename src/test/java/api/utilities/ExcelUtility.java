@@ -34,7 +34,7 @@ public class ExcelUtility {
 		workbook = new XSSFWorkbook(fi);
 		sheet = workbook.getSheet(sheetName);
 		int rowCount = sheet.getLastRowNum();
-		workbook.close();
+//		workbook.close();
 		return rowCount;
 	}
 	
@@ -44,7 +44,7 @@ public class ExcelUtility {
 		sheet = workbook.getSheet(sheetName);
 		row = sheet.getRow(rownum);
 		int cellCount = row.getLastCellNum();
-		workbook.close();
+//		workbook.close();
 		fi.close();
 		return cellCount;
 	
@@ -65,7 +65,7 @@ public class ExcelUtility {
 		catch(Exception e) {
 			data = "";
 		}
-		workbook.close();
+//		workbook.close();
 		fi.close();
 		return data;
 	}
