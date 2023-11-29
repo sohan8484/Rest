@@ -22,11 +22,12 @@ public class StoreTests {
 		faker = new Faker();
 		userPayload = new Store();
 		userPayload.setId(faker.idNumber().validSvSeSsn().hashCode());
-		userPayload.setPetId(faker.number().numberBetween(0,	 100));
+		userPayload.setPetId(faker.number().numberBetween(1,	 10));
 		userPayload.setComplete(false);
 		userPayload.setQuantity(faker.number().numberBetween(0, 20));
 		userPayload.setShipDate("2023-11-29T15:56:21.341Z");
 		userPayload.setStatus("placed");
+		
 		logger = LogManager.getLogger(this.getClass());
 	}
 	
@@ -36,7 +37,24 @@ public class StoreTests {
 		Response response = StoreEndPoints.PlaceOrderForPet(userPayload);
 				response.then().log().all();
 			Assert.assertEquals(response.getStatusCode(), 200);
+	}
+	@Test(priority = 2)
+	public void testPurchaseOrderId() {
+		logger.info("-----------------------testPurchaseOrderId----------------------");	
+		Response response = StoreEndPoints.getPurchaseOrderById(userPayload.getPetId());
+		response.then().log().all();
+	}
+	@Test(priority = 3)
+	public void testDeleteOrderId() {
+		logger.info("-----------------------testDeleteOrderId----------------------");	
+		Response response = StoreEndPoints.deletePurchaseOrderById(userPayload.getPetId());
+		response.then().log().all();
 	}	
-	
+	@Test
+	public void testInventoryReturns() {
+		logger.info("-----------------------testInventoryReturns----------------------");	
+		Response response = StoreEndPoints.getInventoryReturns();
+		response.then().log().all();
+	}
 	
 }

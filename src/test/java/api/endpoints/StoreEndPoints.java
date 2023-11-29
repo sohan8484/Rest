@@ -17,4 +17,34 @@ public class StoreEndPoints {
 				.post(Routes.storePostUrl);
 		return response;
 	}
+	
+	public static Response getPurchaseOrderById(int orderId){
+		Response response = given()
+				.pathParam("orderId", orderId)
+
+				.when()
+			.get(Routes.storeGetUrl);
+		
+		return response;
+	}
+	
+	public static Response deletePurchaseOrderById(int orderId){
+		Response response = given()
+				.pathParam("orderId", orderId)
+
+				.when()
+			.get(Routes.storeDeleteUrl);
+		
+		return response;
+	}
+	
+	public static Response getInventoryReturns(){
+		Response response = given()
+
+				.when()
+			.get(Routes.storeInventoryGetUrl);
+		
+		return response;
+	}
+	
 }
