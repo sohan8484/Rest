@@ -4,3 +4,4 @@
 21:02:50.453 [main] INFO  api.test.UserTest - -----------------------post the user ----------------------
 21:02:56.047 [main] INFO  api.test.UserTest - -------------------------get the user -----------------------
 21:02:57.258 [main] INFO  api.test.UserTest - ------------delet the user ----------------------
+22:02:58.546 [main] INFO  api.test.StoreTests - -----------------------post the Store api ----------------------
